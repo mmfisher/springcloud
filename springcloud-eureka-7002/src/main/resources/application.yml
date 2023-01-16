@@ -1,0 +1,26 @@
+server:
+  port: 7002
+
+#eureka配置
+eureka:
+  instance:
+    #eureka服务端名称
+    hostname: eureka7002.com
+  client:
+    #是否向eureka注册中心注册自己
+    register-with-eureka: false
+    #表示不从注册中心拉取注册
+    fetch-registry: false
+    #监控页面
+    service-url:
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      #关联7001,7003
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7003.com:7003/eureka/
+spring:
+  application:
+    name: springcloud-eureka
+  main:
+    allow-bean-definition-overriding: true #当遇到相同名字的时候，是否允许覆盖注册
+
+
+
